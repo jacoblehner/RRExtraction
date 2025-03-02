@@ -1,19 +1,15 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# RSExtraction
+# RRExtraction
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of RSExtraction is to provide a resource to perform analysis
-presented in Lehner et al. (2024). Currently, this methodology is
-developed for DEM datasets projected in UTM. Other coordinate systems
-can be used, although the unit vector surfaces are unreliable due to the
-discrepancy between lat/long degrees vs meters between the planar extent
-and elevation values. Limited testing has shown that the ridge and swale
-features extracted do not appear to be greatly affected and seem
-reliable.
+Create Relative Relief surface for distinct scales and multiple scales
+including their average. To date the profile-based approaches have not
+been tested. Refer to the examples in the readme for working with DEM
+surfaces.
 
 ## Installation
 
@@ -98,6 +94,7 @@ plot(data, col=turbo(200), legend = T)
 # Get RR for scales between a 5 and 19 scale stepping by 2 and the average RR
 rr.Avg5.19.2 <- rr.Average(inRas = data, inMn = 5, inMx = 19, stp=2)
 #> Scale: 5 Scale: 7 Scale: 9 Scale: 11 Scale: 13 Scale: 15 Scale: 17 Scale: 19 
+names(rr.Avg5.19.2) <- c('5', '7', '9', '11', '13', '15', '17', '19', 'Avg')
 plot(rr.Avg5.19.2, col=gray(1:200/200))
 ```
 
@@ -108,6 +105,7 @@ plot(rr.Avg5.19.2, col=gray(1:200/200))
 # Get RR for scales between a 5 and 33 scale stepping by 4 and the average RR
 rr.Avg5.33.4 <- rr.Average(inRas = data, inMn = 5, inMx = 33, stp=4)
 #> Scale: 5 Scale: 9 Scale: 13 Scale: 17 Scale: 21 Scale: 25 Scale: 29 Scale: 33 
+names(rr.Avg5.19.2) <- c('5', '9', '13', '17', '21', '25', '29', '33', 'Avg')
 plot(rr.Avg5.33.4, col=gray(1:200/200))
 ```
 
