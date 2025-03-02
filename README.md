@@ -55,7 +55,7 @@ f <- system.file("ex/elev_vinschgau.tif", package="terra")
 r <- rast(f) 
 a <- disagg(r, 2.5)
 data <- resample(r, a, "bilinear")
-plot(data, col=turbo(200), legend = T)
+plot(data, col=turbo(200), legend = TRUE)
 ```
 
 <img src="man/figures/README-example1-1.png" width="100%" />
@@ -84,7 +84,7 @@ f <- system.file("ex/elev_vinschgau.tif", package="terra")
 r <- rast(f) 
 a <- disagg(r, 2.5)
 data <- resample(r, a, "bilinear")
-plot(data, col=turbo(200), legend = T)
+plot(data, col=turbo(200), legend = TRUE)
 ```
 
 <img src="man/figures/README-example2-1.png" width="100%" />
