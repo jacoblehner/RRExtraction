@@ -12,3 +12,5 @@ Imports:
     base,
     terra,
     utils
+URL: https://github.com/jacoblehner/RRExtraction
+BugReports: https://github.com/jacoblehner/RRExtraction/issues
