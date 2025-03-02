@@ -105,7 +105,7 @@ plot(rr.Avg5.19.2, col=gray(1:200/200))
 # Get RR for scales between a 5 and 33 scale stepping by 4 and the average RR
 rr.Avg5.33.4 <- rr.Average(inRas = data, inMn = 5, inMx = 33, stp=4)
 #> Scale: 5 Scale: 9 Scale: 13 Scale: 17 Scale: 21 Scale: 25 Scale: 29 Scale: 33 
-names(rr.Avg5.19.2) <- c('5', '9', '13', '17', '21', '25', '29', '33', 'Avg')
+names(rr.Avg5.33.4) <- c('5', '9', '13', '17', '21', '25', '29', '33', 'Avg')
 plot(rr.Avg5.33.4, col=gray(1:200/200))
 ```
 
