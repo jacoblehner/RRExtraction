@@ -3,6 +3,7 @@
 export(getmode)
 export(inflect)
 export(relRelief)
+export(rr.Average)
 export(rr.AvgPoint)
 export(rr.Mins)
 export(rr.Mins.Analysis)

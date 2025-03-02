@@ -38,7 +38,7 @@ rr.AvgPoint <- function(inRas, inMn = 7, inMx = 21, stp = 2, ii, jj){
 #' @param stp Scale step. (default = 2)
 #'
 #' @return Average relative relief surface raster. (SpatRast)
-#' #' @export
+#' @export
 #'
 rr.Average <- function(inRas, inMn = 7, inMx = 21, stp = 2){
 

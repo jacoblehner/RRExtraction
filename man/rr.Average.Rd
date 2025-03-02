@@ -17,7 +17,6 @@ rr.Average(inRas, inMn = 7, inMx = 21, stp = 2)
 }
 \value{
 Average relative relief surface raster. (SpatRast)
-#' @export
 }
 \description{
 Average RR Surface Raster
