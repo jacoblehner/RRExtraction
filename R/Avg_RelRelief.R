@@ -584,7 +584,7 @@ tpi.Average <- function(inMn, inMx, inRas){
       }
     }
   }
-
+  out <- terra::rast(out, ext=terra::ext(inRas), crs=terra::crs(inRas))
 
   return(out)
 }
