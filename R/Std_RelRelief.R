@@ -22,4 +22,23 @@ relRelief <- function(inRas, sc){
   return(relRelief)
 }
 
+#' Standard Topographic Position Index
+#'
+#' @param inRas Input DEM. (SpatRaster)
+#' @param sc Scale of window.
+#'
+#' @return Relative relief raster (SpatRaster)
+#' @export
+#'
+TPI <- function(inRas, sc){
 
+  # Focal mean with moving window of size sc x sc
+  mn <- terra::focal(inRas, w = sc, fun = "mean", na.rm = TRUE,
+                     na.policy = "All", fillvalue = NA)
+
+  # Calc. TPI
+  TPI <- (inRas - mn)
+
+  # Return TPI SpatRast
+  return(TPI)
+}

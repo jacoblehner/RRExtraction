@@ -545,3 +545,88 @@ getmode <- function(v) {
   uniqv <- base::unique(v)
   uniqv[base::which.max(base::tabulate(base::match(v, uniqv)))]
 }
+
+# -------------------------------------------------------------------------
+#' TPI Average
+#'
+#' @param inMn Minimum cale
+#' @param inMx Maximum scale
+#' @param inRas Input DEM
+#'
+#' @return Average TPI surface
+#' @export
+#'
+tpi.Average <- function(inMn, inMx, inRas){
+  if(base::class(inRas) == 'SpatRaster'){
+    x <- base::as.matrix(inRas)
+  }else{
+    x <- inRas
+  }
+
+  seq.RR <- base::seq(inMn, inMx, 2)
+  m = (seq.RR - 1) / 2
+  mid = ((inMx-1) / 2)
+  nr = base::nrow(x) - mid
+  nc = base::ncol(x) - mid
+  out <- x*NA
+  for(j in mid:(nc-mid)){
+    # cat("\r", j, "/", nc,sep="")
+    for(i in mid:(nr-mid)){
+
+      if(!base::is.na(x[i,j]) & x[i,j] > 0){
+        rr.here <- NA
+        for(k in 1:base::length(m)){
+          tmp <- c(x[(i-m[k]):(i + m[k]),(j-m[k]):(j + m[k])])
+          rr.here[k] <- (x[i,j] - base::mean(tmp, na.rm=T))
+        }
+        out[i,j] = base::mean(rr.here, na.rm=T)
+
+      }
+    }
+  }
+
+
+  return(out)
+}
+
+# -------------------------------------------------------------------------
+#' TRI Average
+#'
+#' @param inMn Minimum cale
+#' @param inMx Maximum scale
+#' @param inRas Input DEM
+#'
+#' @return Average TRI surface
+#' @export
+#'
+tri.Average <- function(inMn, inMx, inRas){
+  if(base::class(inRas) == 'SpatRaster'){
+    x <- base::as.matrix(inRas)
+  }else{
+    x <- inRas
+  }
+  seq.RR <- base::seq(inMn, inMx, 2)
+  m = (seq.RR - 1) / 2
+  mid = ((inMx-1) / 2)
+  nr = base::nrow(x) - mid
+  nc = base::ncol(x) - mid
+  out <- x*NA
+  for(j in mid:(nc-mid)){
+    # cat("\r", j, "/", nc,sep="")
+    for(i in mid:(nr-mid)){
+
+      if(!base::is.na(x[i,j]) & x[i,j] > 0){
+        rr.here <- NA
+        for(k in 1:base::length(m)){
+          tmp <- c(x[(i-m[k]):(i + m[k]),(j-m[k]):(j + m[k])])
+          rr.here[k] <- base::sum(base::abs(x[i,j] - tmp), na.rm=T)/(base::length(tmp)-1)
+        }
+        out[i,j] = base::mean(rr.here, na.rm=T)
+
+      }
+    }
+  }
+
+  out <- terra::rast(out, ext=terra::ext(inRas), crs=terra::crs(inRas))
+  return(out)
+}
