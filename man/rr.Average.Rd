@@ -4,20 +4,26 @@
 \alias{rr.Average}
 \title{Average RR Surface Raster}
 \usage{
-rr.Average(inRas, inMn = 7, inMx = 21, stp = 2)
+rr.Average(inMn = 7, inMx = Id.Sc, x = D, inRas = M, save = T)
+
+rr.Average(inMn = 7, inMx = Id.Sc, x = D, inRas = M, save = T)
 }
 \arguments{
-\item{inRas}{Input DEM. (SpatRast)}
+\item{inMn}{Minimum cale}
 
-\item{inMn}{Minimum scale. (default = 7)}
+\item{inMx}{Maximum scale}
 
-\item{inMx}{Maximum scale. (default = 21)}
+\item{inRas}{Input DEM}
 
 \item{stp}{Scale step. (default = 2)}
 }
 \value{
 Average relative relief surface raster. (SpatRast)
+
+Average RR surface
 }
 \description{
 Average RR Surface Raster
+
+RR Average
 }
