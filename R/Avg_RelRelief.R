@@ -558,7 +558,7 @@ getmode <- function(v) {
 #'
 tpi.Average <- function(inMn, inMx, inRas){
   if(base::class(inRas) == 'SpatRaster'){
-    x <- base::as.matrix(inRas)
+    x <- base::as.matrix(inRas, wide=TRUE)
   }else{
     x <- inRas
   }
@@ -601,7 +601,7 @@ tpi.Average <- function(inMn, inMx, inRas){
 #'
 tri.Average <- function(inMn, inMx, inRas){
   if(base::class(inRas) == 'SpatRaster'){
-    x <- base::as.matrix(inRas)
+    x <- base::as.matrix(inRas, wide=TRUE)
   }else{
     x <- inRas
   }
