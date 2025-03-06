@@ -556,7 +556,7 @@ getmode <- function(v) {
 #' @return Average RR surface
 #' @export
 #'
-rr.Average <- function(inMn=7, inMx=Id.Sc, x=D, inRas=M, save=T){
+rr.AverageLayer <- function(inMn=7, inMx=Id.Sc, x=D, inRas=M, save=T){
   if(base::class(inRas) == 'SpatRaster'){
     x <- base::as.matrix(inRas, wide=TRUE)
   }else{
